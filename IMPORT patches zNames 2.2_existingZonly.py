@@ -12,7 +12,8 @@ from ij import IJ
 from ij.plugin import Duplicator
 
 #folder = "/path/to/folder/with/all/images/"
-folder = "C:/Users/feder/Documents/LAB/LGE_interneurons_postnatal/P3to10.4/MAX/"
+folder = "D:/collaborazioni/GRIN/GRINKDstd11.1OM/MAX/tiles/TrakEM2"
+specimen = "GKstd11OM.1"
 
 #Define the scaling factors for the images.
 Scaling_Factor=1
@@ -87,8 +88,11 @@ for layer in layerset.getLayers():
   # Update internal quadtree of the layer
   layer.recreateBuckets()
 
-# 4. Montage each layer independently
-
+# 4. Add Patch composite mode to ADD
+for layer in Display.getFront().getLayerSet().getLayers():
+				patches = layer.getDisplayables(Patch)
+				for patch in patches:
+					patch.setCompositeMode(1)
  
 # 5. Resize width and height of the world to fit the montages
 layerset.setMinimumDimensions()
@@ -97,6 +101,6 @@ layerset.setMinimumDimensions()
 #Blending.blendLayerWise(layerset.getLayers(), True, None)
 
 # 7. Save the project
-#project.saveAs(os.path.join(folder, Specimen +".xml"), False)
+project.saveAs(os.path.join(folder, Specimen +".xml"), False)
  
 print "Done!"
