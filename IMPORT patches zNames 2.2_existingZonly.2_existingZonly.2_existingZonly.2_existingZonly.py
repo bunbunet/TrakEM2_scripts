@@ -32,7 +32,7 @@ filenames = os.listdir(folder)
 zList = []
 for filename in filenames:
 	try:
-		found = re.search(".*_z(.+?)_.*\.png", filename).group(1)
+		found = re.search(".*_z(.+?)_.*\.tif", filename).group(1)
 	except AttributeError:
 	    # z_ not found in the original string
 	    found = '0'
@@ -68,7 +68,7 @@ for layer in layerset.getLayers():
   print(int(i))
   # EDIT the following pattern to match the filename of the images
   # that must be inserted into section at index i:
-  pattern = re.compile(".*_z" + str(i) + "_.*\.png")
+  pattern = re.compile(".*_z" + str(i) + "_.*\.tif")
   for filename in filter(pattern.match, filenames):
     if not filename in nameList:
     	filepath = os.path.join(folder, filename)

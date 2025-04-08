@@ -3,15 +3,17 @@ from ini.trakem2 import Project
 from ij.text import TextWindow
 
 ProjName= Project.getProjects()
-
+filters= ["Sp8"]
 rows = []
 
 for layer in Display.getFront().getLayerSet().getLayers():
 				patches = layer.getDisplayables(Patch)
 				for patch in patches:
 					title = patch.getTitle()
-					p=patch.getAffineTransform()
-					rows.append(str(title)+","+str(layer)","+str(p))
+					for filter in filters:
+						if filter in title:
+							p=patch.getAffineTransform()
+							rows.append(str(title) + "," + str(layer)+ "," +str (p))
 
 csv = "\n".join(rows)
  

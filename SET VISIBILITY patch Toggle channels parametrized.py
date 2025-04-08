@@ -8,6 +8,10 @@ shortCut3="DCX"
 shortCut4="Dapi"
 shortCut5="scan"
 shortCut6="otherMk"
+shortCut7="otherMk"
+shortCut8="otherMk"
+shortCut9="otherMk"
+shortCut0="otherMk"
 
 
 class MyKeyListener(KeyAdapter):
@@ -63,13 +67,55 @@ class MyKeyListener(KeyAdapter):
 						else:
 							patch.visible = True
 
-		elif KeyEvent.VK_5 == keyCode:
+		elif KeyEvent.VK_6 == keyCode:
 			for layer in Display.getFront().getLayerSet().getLayers():
 				patches = layer.getDisplayables(Patch)
 				for patch in patches:
-					if shortCut5 in patch.title:
+					if shortCut6 in patch.title:
 						if patch.visible == True:
 							patch.visible = False
 						else:
 							patch.visible = True
+							
+							
+		elif KeyEvent.VK_7 == keyCode:
+			for layer in Display.getFront().getLayerSet().getLayers():
+				patches = layer.getDisplayables(Patch)
+				for patch in patches:
+					if shortCut7 in patch.title:
+						if patch.visible == True:
+							patch.visible = False
+						else:
+							patch.visible = True
+							
+		elif KeyEvent.VK_8 == keyCode:
+			for layer in Display.getFront().getLayerSet().getLayers():
+				patches = layer.getDisplayables(Patch)
+				for patch in patches:
+					if shortCut8 in patch.title:
+						if patch.visible == True:
+							patch.visible = False
+						else:
+							patch.visible = True
+							
+		elif KeyEvent.VK_9 == keyCode:
+			for layer in Display.getFront().getLayerSet().getLayers():
+				patches = layer.getDisplayables(Patch)
+				for patch in patches:
+					if shortCut9 in patch.title:
+						if patch.visible == True:
+							patch.visible = False
+						else:
+							patch.visible = True
+							
+		elif KeyEvent.VK_0 == keyCode:
+			for layer in Display.getFront().getLayerSet().getLayers():
+				patches = layer.getDisplayables(Patch)
+				for patch in patches:
+					if shortCut0 in patch.title:
+						if patch.visible == True:
+							patch.visible = False
+						else:
+							patch.visible = True
+							
 Display.getFront().getCanvas().addKeyListener(MyKeyListener())
